@@ -30,10 +30,13 @@ class BSTree {
         bool isBalanced();
         int size();
 
+        // TODO: PART 2
         bool isFull();
         void removeRepeats();
         T successor(T value);
         T predecessor(T value);
+        void clear();
+        void buildFromOrderedArray(T *array, int n);
 
     private:
         void insert(NodeBT<T>* &node, T value);
