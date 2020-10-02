@@ -44,6 +44,19 @@ int main(int argc, char const *argv[]) {
         bstree->remove(bstree->maxValue());
         cout<<ns - bstree->size();
         break; 
+    case '10':
+        cout<<bstree->isFull();
+        break;
+    case '11':        
+        bstree->removeRepeats();
+        bstree->displayInOrder();
+        break;   
+    case '12':        
+        cout<<bstree->predecessor(30);        
+        break;      
+    case '13':        
+        cout<<bstree->successor(18);        
+        break;          
     default:
         cout<<"option not found";
         break;

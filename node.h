@@ -1,7 +1,6 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "bst.h"
 using namespace std;
 
 template <typename T>

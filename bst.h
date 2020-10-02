@@ -30,6 +30,11 @@ class BSTree {
         bool isBalanced();
         int size();
 
+        bool isFull();
+        void removeRepeats();
+        T successor(T value);
+        T predecessor(T value);
+
     private:
         void insert(NodeBT<T>* &node, T value);
         bool find(NodeBT<T>* node, T value);
@@ -56,6 +61,7 @@ bool BSTree<T>::find(NodeBT<T>* node, T value){
         return find(node->right, value);
     else return true;
 }
+
 #endif
 
 
