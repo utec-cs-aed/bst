@@ -6,7 +6,7 @@ int main(int argc, char const *argv[])
 {
     BSTree<int> *bstree = new BSTree<int>();
     int n, val;
-    cin >> n;    
+    cin >> n;
     char option = argv[1][0];
     if (option >= '1' && option <= '14')
     {
@@ -63,17 +63,24 @@ int main(int argc, char const *argv[])
         case '14':
             bstree->clear();
             cout << bstree->size();
+            break;
+        case '15':
+            for (BSTree<int>::iterator ite = bstree->begin(); ite != bstree->end(); ++ite) {
+                cout << *ite << endl;
+            }
             break;    
         }
-    } else if(option == '15'){
-        int *array = new int[n];        
+    }
+    else if (option == '16')
+    {
+        int *array = new int[n];
         for (int i = 0; i < n; i++)
-        {
             cin >> array[i];
-        }        
         bstree->buildFromOrderedArray(array, n);
         cout << bstree->isBalanced();
-    } else {
+    }
+    else
+    {
         cout << "option not found";
     }
 }
