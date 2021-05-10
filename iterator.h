@@ -13,6 +13,7 @@ public:
 
 private:
     Node<T> *current;
+    Type type;
 
 public:
     BSTIterator() : current(nullptr), type(InOrder) {};

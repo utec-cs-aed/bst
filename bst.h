@@ -16,15 +16,9 @@ class BSTree {
     public:
         BSTree(): root(nullptr) {}
 
-        void insert(T value) {
-            insert(this->root, value);
-        }
-
-        bool find(T value) {
-            return find(this->root, value);
-        }
-
-        // TODO: PART 1      
+        // TODO: PART 1  
+		void insert(T value);	
+		bool find(T value);		
         void displayInOrder();
         void displayPreOrder();
         void displayPostOrder();
@@ -48,31 +42,8 @@ class BSTree {
         iterator end();// Retorna el final del iterador
         ~BSTree(); //Destructor del arbol
 
-    private:
-        void insert(NodeBT<T>* &node, T value);
-        bool find(NodeBT<T>* node, T value);
 }; 
 
-template <typename T>
-void BSTree<T>::insert(NodeBT<T>* &node, T value){
-    if(node == nullptr)    
-        node = new NodeBT<T>(value);
-    else if(value < node->data)
-        insert(node->left, value);
-    else 
-        insert(node->right, value);    
-}
-
-template <typename T>
-bool BSTree<T>::find(NodeBT<T>* node, T value){
-    if(node == nullptr)
-        return false;
-    else if(value < node->data)
-        return find(node->left, value);
-    else if(value > node->data)
-        return find(node->right, value);
-    else return true;
-}
 
 #endif
 
