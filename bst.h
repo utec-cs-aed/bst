@@ -33,7 +33,7 @@ class BSTree {
         void clear(); // Liberar todos los nodos (usar root->KillSelf)
         void buildFromOrderedArray(T *array, int n); //dado un array ordenado construir un arbol binario balanceado
         string displayBFS();// Recorrido en anchura (BreadthFirstSearch)
-        void displayDFS();// Recorrido en profundidad (DepthFirstSearch)
+        string displayDFS();// Recorrido en profundidad (DepthFirstSearch)
         iterator begin(BSTIterator<int>::Type _);// Retorna el inicio del iterador             
         iterator end();// Retorna el final del iterador
         ~BSTree(); //Destructor del arbol

@@ -20,7 +20,7 @@ int main()
 
     ASSERT(bstree->isBalanced() == false, "The function isBalanced is not working",1);
     ASSERT(bstree->displayInOrder() == "1 3 4 6 7 8 10 13 14 ", "The function displayInOrder is not working",1);
-    ASSERT(bstree->displayBFS() == "8 3 10 1 6 14 4 7 13", "The function displayBFS is not working",1);
+    ASSERT(bstree->displayBFS() == "8 3 10 1 6 14 4 7 13 ", "The function displayBFS is not working",1);
     ASSERT(bstree->height() == 3, "The function height is not working",1);
     ASSERT(bstree->minValue() == 1, "The function minValue is not working",1);
     ASSERT(bstree->maxValue() == 14, "The function maxValue is not working",1);
