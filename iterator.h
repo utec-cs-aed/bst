@@ -12,12 +12,12 @@ public:
     };
 
 private:
-    Node<T> *current;
+    NodeBT<T> *current;
     Type type;
 
 public:
     BSTIterator() : current(nullptr), type(InOrder) {};
-    BSTIterator(Node<T> *current, Type type=InOrder): type(type) {
+    BSTIterator(NodeBT<T> *current, Type type=InOrder): type(type) {
         //TODO
     }
     BSTIterator<T> &operator=(BSTIterator<T> other);

@@ -1,87 +1,65 @@
 #include <iostream>
 #include <stdlib.h> 
 #include "bst.h"
+#include "tester.h"
+
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
     BSTree<int> *bstree = new BSTree<int>();
-    int n, val;
-    cin >> n;
-    int option = atoi(argv[1]);
-    if (option >= 1 && option <= 15)
-    {
-        for (int i = 0; i < n; i++)
-        {
-            cin >> val;
-            bstree->insert(val);
-        }
-        switch (option)
-        {
-        case 1:
-            bstree->displayInOrder();
-            break;
-        case 2:
-            bstree->displayPreOrder();
-            break;
-        case 3:
-            bstree->displayPostOrder();
-            break;
-        case 4:
-            cout << bstree->height();
-            break;
-        case 5:
-            cout << bstree->minValue();
-            break;
-        case 6:
-            cout << bstree->maxValue();
-            break;
-        case 7:
-            cout << bstree->isBalanced();
-            break;
-        case 8:
-            cout << bstree->size();
-            break;
-        case 9:
-            int ns = bstree->size();
-            bstree->remove(bstree->minValue());
-            bstree->remove(bstree->maxValue());
-            cout << ns - bstree->size();
-            break;
-        case 10:
-            cout << bstree->isFull();
-            break;
-        case 11:
-            bstree->removeRepeats();
-            bstree->displayInOrder();
-            break;
-        case 12:
-            cout << bstree->predecessor(30);
-            break;
-        case 13:
-            cout << bstree->successor(18);
-            break;
-        case 14:
-            bstree->clear();
-            cout << bstree->size();
-            break;
-        case 15:
-            for (BSTree<int>::iterator ite = bstree->begin(); ite != bstree->end(); ++ite) {
-                cout << *ite << endl;
-            }
-            break;    
-        }
+    bstree->insert(8);
+    bstree->insert(3);
+    bstree->insert(1);
+    bstree->insert(6);
+    bstree->insert(4);
+    bstree->insert(7);
+    bstree->insert(10);
+    bstree->insert(14);
+    bstree->insert(13);
+
+    ASSERT(bstree->isBalanced() == false, "The function isBalanced is not working",1);
+    ASSERT(bstree->displayInOrder() == "1 3 4 6 7 8 10 13 14 ", "The function displayInOrder is not working",1);
+    ASSERT(bstree->displayBFS() == "8 3 10 1 6 14 4 7 13", "The function displayBFS is not working",1);
+    ASSERT(bstree->height() == 3, "The function height is not working",1);
+    ASSERT(bstree->minValue() == 1, "The function minValue is not working",1);
+    ASSERT(bstree->maxValue() == 14, "The function maxValue is not working",1);
+    ASSERT(bstree->size() == 8, "The function size is not working",1);
+    ASSERT(bstree->successor(7) == 8, "The function successor is not working",1);
+    ASSERT(bstree->predecessor(4) == 3, "The function predecessor is not working",1);
+    
+    /*-----------------------iterator---------------------------------*/
+    string result = "";
+    BSTree<int>::iterator ite = bstree->begin(BSTIterator<int>::Type::PreOrder);
+    while(ite != bstree->end()) {
+        result += std::to_string(*ite) + " ";
+        ++ite;
     }
-    else if (option == 16)
-    {
-        int *array = new int[n];
-        for (int i = 0; i < n; i++)
-            cin >> array[i];
-        bstree->buildFromOrderedArray(array, n);
-        cout << bstree->isBalanced();
+    ASSERT(result == "8 3 1 6 4 7 10 14 13 ", "The PreOrder iterator is not working",3);
+    
+    result = "";
+    ite = bstree->begin(BSTIterator<int>::Type::PostOrder);
+    while(ite != bstree->end()) {
+        result += std::to_string(*ite) + " ";
+        ++ite;
     }
-    else
-    {
-        cout << "option not found";
-    }
+    ASSERT(result == "1 4 7 6 3 13 14 10 8 ", "The PostOrder iterator is not working",3);
+    /*---------------------------------------------------------------*/
+
+
+    bstree->remove(10);
+    bstree->remove(8);
+    ASSERT(bstree->displayInOrder() == "1 3 4 6 7 13 14 ", "The function remove is not working",1);
+    bstree->clear();
+    bstree->insert(8);
+    ASSERT(bstree->size() == 1, "The function clear is not working",1);
+    
+
+    /*-----------------------BST from ordered array---------------------------------*/
+    int array[] = {1,5,7,8,9,11,12,13,15,18,20,22,25,26};
+    bstree->buildFromOrderedArray(array, 14);    
+    ASSERT(bstree->isBalanced() == true, "The function buildFromOrderedArray is not working",1);
+    /*---------------------------------------------------------------*/
+
+    return 0;
 }
