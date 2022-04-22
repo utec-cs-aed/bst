@@ -24,7 +24,7 @@ int main()
     ASSERT(bstree->height() == 3, "The function height is not working",1);
     ASSERT(bstree->minValue() == 1, "The function minValue is not working",1);
     ASSERT(bstree->maxValue() == 14, "The function maxValue is not working",1);
-    ASSERT(bstree->size() == 8, "The function size is not working",1);
+    ASSERT(bstree->size() == 9, "The function size is not working",1);
     ASSERT(bstree->successor(7) == 8, "The function successor is not working",1);
     ASSERT(bstree->predecessor(4) == 3, "The function predecessor is not working",1);
     

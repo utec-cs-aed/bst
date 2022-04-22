@@ -24,7 +24,7 @@ class BSTree {
         int height();
         T minValue();
         T maxValue();
-        void remove(T value);
+        void remove(T value);        
         bool isBalanced();
         int size();
         bool isFull(); //es aquel en el que todos los nodos tienen 0 o 2 hijos        
