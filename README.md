@@ -1,9 +1,8 @@
-# Alumno: ____   _______
+# Integrantes: ____   _______
 
 # Binary Search Tree
 
-Implement all methods. 
+Implementar todos metodos de la clase BST. Asegurarse que pasen los tests del main.
+La sección de iteradores en esta tarea es opcional. 
 
-NOT DELETE OR MODIFY  THE MAIN FILE. 
-
-># Tests: 18
+># Tests: 12 (Con iteradores 18)
