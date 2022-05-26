@@ -8,7 +8,7 @@ class BSTIterator
 {
 public:
     enum Type {
-        PreOrder, InOrder, PostOrder
+        PreOrder, InOrder, PostOrder, BFS
     };
 
 private:
