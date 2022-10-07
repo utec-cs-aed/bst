@@ -18,15 +18,21 @@ int main()
     bstree->insert(14);
     bstree->insert(13);
 
-    ASSERT(bstree->isBalanced() == false, "The function isBalanced is not working",1);
-    ASSERT(bstree->displayInOrder() == "1 3 4 6 7 8 10 13 14 ", "The function displayInOrder is not working",1);
-    ASSERT(bstree->displayBFS() == "8 3 10 1 6 14 4 7 13 ", "The function displayBFS is not working",1);
-    ASSERT(bstree->height() == 3, "The function height is not working",1);
-    ASSERT(bstree->minValue() == 1, "The function minValue is not working",1);
-    ASSERT(bstree->maxValue() == 14, "The function maxValue is not working",1);
-    ASSERT(bstree->size() == 9, "The function size is not working",1);
-    ASSERT(bstree->successor(7) == 8, "The function successor is not working",1);
-    ASSERT(bstree->predecessor(4) == 3, "The function predecessor is not working",1);
+    ASSERT(bstree->isBalanced() == false, "The function isBalanced is not working", 1);
+    ASSERT(bstree->displayInOrder() == "1 3 4 6 7 8 10 13 14 ", "The function displayInOrder is not working", 1);
+    ASSERT(bstree->displayBFS() == "8 3 10 1 6 14 4 7 13 ", "The function displayBFS is not working", 1);
+    ASSERT(bstree->height() == 3, "The function height is not working", 1);
+    ASSERT(bstree->minValue() == 1, "The function minValue is not working", 1);
+    ASSERT(bstree->maxValue() == 14, "The function maxValue is not working", 1);
+    ASSERT(bstree->size() == 9, "The function size is not working", 1);
+    ASSERT(bstree->successor(3) == 4, "The function successor is not working", 1);
+    ASSERT(bstree->successor(4) == 6, "The function successor is not working", 1);
+    ASSERT(bstree->successor(7) == 8, "The function successor is not working", 1);
+    ASSERT(bstree->successor(13) == 14, "The function successor is not working", 1);
+    ASSERT(bstree->predecessor(4) == 3, "The function predecessor is not working", 1);
+    ASSERT(bstree->predecessor(8) == 7, "The function predecessor is not working", 1);
+    ASSERT(bstree->predecessor(10) == 8, "The function predecessor is not working", 1);
+    ASSERT(bstree->predecessor(13) == 10, "The function predecessor is not working", 1);
     
     /*-----------------------iterator---------------------------------*/
     string result = "";
@@ -48,7 +54,11 @@ int main()
 
 
     bstree->remove(10);
+    ASSERT(bstree->successor(8) == 13, "The function successor is not working", 1);
+    ASSERT(bstree->predecessor(13) == 8, "The function predecessor is not working", 1);
     bstree->remove(8);
+    ASSERT(bstree->successor(7) == 13, "The function successor is not working", 1);
+    ASSERT(bstree->predecessor(13) == 7, "The function predecessor is not working", 1);
     ASSERT(bstree->displayInOrder() == "1 3 4 6 7 13 14 ", "The function remove is not working",1);
     bstree->clear();
     bstree->insert(8);
@@ -57,6 +67,12 @@ int main()
 
     /*-----------------------BST from ordered array---------------------------------*/
     int array[] = {1,5,7,8,9,11,12,13,15,18,20,22,25,26};
+    ASSERT(bstree->minValue() == 1, "The function minValue is not working", 1);
+    ASSERT(bstree->maxValue() == 26, "The function maxValue is not working", 1);
+    ASSERT(bstree->successor(8) == 9, "The function successor is not working", 1);
+    ASSERT(bstree->predecessor(8) == 7, "The function predecessor is not working", 1);
+    ASSERT(bstree->successor(15) == 18, "The function successor is not working", 1);
+    ASSERT(bstree->predecessor(15) == 13, "The function predecessor is not working", 1);
     bstree->buildFromOrderedArray(array, 14);    
     ASSERT(bstree->isBalanced() == true, "The function buildFromOrderedArray is not working",1);
     /*---------------------------------------------------------------*/
