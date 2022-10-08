@@ -67,13 +67,13 @@ int main()
 
     /*-----------------------BST from ordered array---------------------------------*/
     int array[] = {1,5,7,8,9,11,12,13,15,18,20,22,25,26};
+    bstree->buildFromOrderedArray(array, 14);    
     ASSERT(bstree->minValue() == 1, "The function minValue is not working", 1);
     ASSERT(bstree->maxValue() == 26, "The function maxValue is not working", 1);
     ASSERT(bstree->successor(8) == 9, "The function successor is not working", 1);
     ASSERT(bstree->predecessor(8) == 7, "The function predecessor is not working", 1);
     ASSERT(bstree->successor(15) == 18, "The function successor is not working", 1);
     ASSERT(bstree->predecessor(15) == 13, "The function predecessor is not working", 1);
-    bstree->buildFromOrderedArray(array, 14);    
     ASSERT(bstree->isBalanced() == true, "The function buildFromOrderedArray is not working",1);
     /*---------------------------------------------------------------*/
 
