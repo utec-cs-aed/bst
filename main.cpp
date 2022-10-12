@@ -67,6 +67,7 @@ int main()
 
     /*-----------------------BST from ordered array---------------------------------*/
     int array[] = {1,5,7,8,9,11,12,13,15,18,20,22,25,26};
+    bstree->clear();
     bstree->buildFromOrderedArray(array, 14);    
     ASSERT(bstree->minValue() == 1, "The function minValue is not working", 1);
     ASSERT(bstree->maxValue() == 26, "The function maxValue is not working", 1);
